@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MvcAplictionDAL.Models
 {
-    internal class Department
+    public class Department
     {
         public int Id { get; set; }
         // null the option type in c#  5.0
