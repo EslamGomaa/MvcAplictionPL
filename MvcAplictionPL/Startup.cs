@@ -5,7 +5,10 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using MvcAplictionBLL.Interfaces;
+using MvcAplictionBLL.Repositories;
 using MvcAplictionDAL.Data;
+using MvcAplictionPL.Controllers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,7 +34,8 @@ namespace MvcAplictionPL
             //services.AddSingleton<ApplicationDbContext>();
             //services.AddTransient<ApplicationDbContext>();
 
-            //services.AddScoped<DbContextOptions<ApplicationDbContext>>();
+            
+            services.AddScoped<IDepartmentRepository, DepartmentRepository>();
             services.AddDbContext<ApplicationDbContext>(options =>
             {
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
