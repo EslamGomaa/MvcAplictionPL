@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using MvcAplictionDAL.Models;
 using System;
 using System.Collections.Generic;
@@ -20,7 +21,7 @@ namespace MvcAplictionDAL.Data
      
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-            => optionsBuilder.UseSqlServer("Server = . ; Database=MvcApplicaton ; Trusted_Connection =True ");
+            => optionsBuilder.UseSqlServer();
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
