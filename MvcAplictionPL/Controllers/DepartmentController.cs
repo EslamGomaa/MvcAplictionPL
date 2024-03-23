@@ -14,7 +14,8 @@ namespace MvcAplictionPL.Controllers
         }
         public IActionResult Index()
         {
-            return View();
+            var departments = _departmentsRepo.GetAll();
+            return View(departments);
         }
     }
 }
