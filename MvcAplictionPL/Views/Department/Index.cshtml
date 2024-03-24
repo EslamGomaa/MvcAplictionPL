@@ -1,32 +1,36 @@
-﻿
-@model IEnumerable<Department>
+﻿@model IEnumerable<Department>
 @{
     ViewData["Title"] = "Index";
 }
 
 <h1>All Department</h1>
 
-<br/>
-<br/>
-<a asp-asp-controller="Department" asp-action="Create " class="btn btn-primarry ">   Create New Department </a>
+
 <br />
-@if(Model.Count() > 0)
+<a asp-controller="Department" asp-action="Create" class="btn btn-primary ">   Create The New Department </a>
+<br />
+@if (Model.Count() > 0)
 {
     <table class="table table-striped">
         <thead>
-            <th>@Html.DisplayNameFor(D =>D.Code) </th>
-            <th>@Html.DisplayNameFor(D => D.Name)</th>
-            <th>@Html.DisplayNameFor(D => D.DateOfCreation) </th>
-            <th>Details</th>
-            <th>Update</th>
-            <th>Delete</th>
+            <tr>
 
-            
+                <th>@Html.DisplayNameFor(D => D.Code) </th>
+                <th>@Html.DisplayNameFor(D => D.Name)</th>
+                <th>@Html.DisplayNameFor(D => D.DateOfCreation) </th>
+                <th>Details</th>
+                <th>Update</th>
+                <th>Delete</th>
+
+            </tr>
+
+
+
 
 
         </thead>
         <tbody>
-            @foreach(var department in Model )
+            @foreach (var department in Model)
             {
                 <tr>
                     <th>@department.Code</th>
@@ -47,9 +51,10 @@
         </tbody>
     </table>
 }
-else{
+else
+{
     <div class="mt-4 alert alert-warning">
-        this is NO  Department 
+        this is NO  Department
 
 
     </div>

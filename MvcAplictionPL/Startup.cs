@@ -30,19 +30,19 @@ namespace MvcAplictionPL
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-            services.AddScoped<ApplicationDbContext>();
+            //services.AddScoped<ApplicationDbContext>();
             //services.AddSingleton<ApplicationDbContext>();
             //services.AddTransient<ApplicationDbContext>();
 
             
-            services.AddScoped<IDepartmentRepository, DepartmentRepository>();
+            
             services.AddDbContext<ApplicationDbContext>(options =>
             {
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
 
             });
 
-
+            services.AddScoped<IDepartmentRepository, DepartmentRepository>();
 
 
 
