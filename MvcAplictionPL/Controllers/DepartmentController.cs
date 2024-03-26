@@ -78,9 +78,12 @@ namespace MvcAplictionPL.Controllers
 
         }
         [HttpPost]
-        public IActionResult Edit(Department department)
+        [ValidateAntiForgeryToken]
+        public IActionResult Edit([FromRoute]int id,Department department)
         {
-           if (ModelState.IsValid)
+            if(id!= department.Id) 
+                return BadRequest ();
+           if (!ModelState.IsValid)
             {
                 return View(department);
 
@@ -99,7 +102,7 @@ namespace MvcAplictionPL.Controllers
 
 
                 else 
-                    ModelState.AddModelError(string.Empty, "Error During the Update "); 
+                    ModelState.AddModelError(string.Empty, "Error During the Update Department "); 
             }
             return View(department);
 
