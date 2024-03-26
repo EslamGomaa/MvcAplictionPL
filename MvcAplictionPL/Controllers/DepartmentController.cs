@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Microsoft.Extensions.Hosting;
 using MvcAplictionBLL.Interfaces;
 using MvcAplictionBLL.Repositories;
@@ -107,5 +108,35 @@ namespace MvcAplictionPL.Controllers
             return View(department);
 
         }
+        [HttpGet]
+        public IActionResult Delete(int? id)
+        {
+            return Details(id, "Delete");
+
+        }
+        [HttpPost]
+        public IActionResult Delete (Department department)
+        {
+            try
+            {
+                _departmentsRepo.Delete(department);
+                return RedirectToAction(nameof(Index));
+            }
+            catch (Exception ex)
+            {
+                if (_env.IsDevelopment())
+
+                    ModelState.AddModelError(string.Empty, ex.Message);
+
+
+                else
+                    ModelState.AddModelError(string.Empty, "Error During the Update Department ");
+            }
+            return View(department);
+        }
+
+
+
+
     }
 }
