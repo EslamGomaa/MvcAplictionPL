@@ -26,7 +26,7 @@ namespace MvcAplictionBLL.Repositories
 
         public int Delete(Department entity)
         {
-             _dbContext.Department.Remove(entity);
+            _dbContext.Department.Remove(entity);
             return _dbContext.SaveChanges();
 
         }
