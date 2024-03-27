@@ -20,9 +20,9 @@ namespace MvcAplictionDAL.Models
 
     }
 
-    public class Employee
+    public class Employee :ModelBase
     {
-        public int Id { get; set; }
+        
         [Required]
         [MaxLength(50)]
         [MinLength(5)]

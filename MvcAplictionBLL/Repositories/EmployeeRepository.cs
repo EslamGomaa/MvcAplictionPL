@@ -10,51 +10,19 @@ using System.Threading.Tasks;
 
 namespace MvcAplictionBLL.Repositories
 {
-    public class EmployeeRepository : IEmployeeRepository
+    public class EmployeeRepository : GenericRepository<Employee>, IEmployeeRepository
     {
-        private readonly ApplicationDbContext _dbContext;
-        public EmployeeRepository(ApplicationDbContext dbContext)
+        
+
+        public EmployeeRepository(ApplicationDbContext dbContext) :base(dbContext)
         {
-            _dbContext = dbContext;
+            
+            
         }
-
-        public int Add(Employee entity)
+        public IQueryable<Employee> GetEmployyByAddrss(string addrss)
         {
-            _dbContext.Employees.Add(entity);
-            return _dbContext.SaveChanges();
+
+            return _dbContext .Employees.Where(E=>E.Address.ToLower() == addrss.ToLower());
         }
-
-     
-
-        public int Delete(Employee entity)
-        {
-            _dbContext.Employees.Remove(entity);
-            return _dbContext.SaveChanges();
-
-        }
-
-
-        public Employee Get(int id)
-        {
-            //var Employee = _dbContext.Employee.Where(D=>D.Id == id).FirstOrDefault();
-            return _dbContext.Employees.Find(id);
-        }
-
-        public IEnumerable<Employee> GetAll()
-        {
-            return _dbContext.Employees.AsNoTracking().ToList();
-        }
-
-        public int Update(Employee entity)
-        {
-            _dbContext.Employees.Update(entity);
-            return _dbContext.SaveChanges();
-
-
-        }
-
-      
-
-      
     }
 }

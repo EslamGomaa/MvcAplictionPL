@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace MvcAplictionDAL.Models
 {
-    public class Department
+    public class Department :ModelBase
     {
-        public int Id { get; set; }
+        
         // null the option type in c#  5.0
         [Required(ErrorMessage ="Code is Required ya Eslam !!!")]
         public string  Code  { get; set; }
