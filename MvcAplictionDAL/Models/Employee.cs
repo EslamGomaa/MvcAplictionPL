@@ -15,8 +15,8 @@ namespace MvcAplictionDAL.Models
 
     }  public enum EmpType
     {
-        Fulltime = 1,
-        Parttime = 2,
+        FullTime = 1,
+        PartTime = 2,
 
     }
 
