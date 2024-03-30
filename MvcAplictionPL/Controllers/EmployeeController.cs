@@ -43,9 +43,14 @@ namespace MvcAplictionPL.Controllers
             {
                 var count = _employeesRepo.Add(employees);
                 if (count > 0)
-                {
-                    return RedirectToAction(nameof(Index));
-                }
+                
+                    TempData["Message"] = "Department is Created successfully";
+                
+                else
+                    TempData["Message"] = " An Eror Has Occured";
+
+                return RedirectToAction(nameof(Index));
+
             }
 
 
