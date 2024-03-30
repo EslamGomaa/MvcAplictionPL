@@ -22,6 +22,11 @@ namespace MvcAplictionPL.Controllers
         }
         public IActionResult Index()
         {
+            // Binding through Views Transfer Data from action to views 
+            // 1- viewData  
+            ViewData["Message"] = "Hello in my projct ";
+            ViewBag.Message = "Hello in my View Bag";
+
             var employees = _employeesRepo.GetAll();
             return View(employees);
         }
