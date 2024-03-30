@@ -7,11 +7,11 @@ using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MvcAplictionDAL.Data;
 
-namespace MvcAplictionDAL.Data.Migrations
+namespace MvcAplictionDAL.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240326235804_EmployeeModule")]
-    partial class EmployeeModule
+    [Migration("20240330021453_TestData21")]
+    partial class TestData21
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

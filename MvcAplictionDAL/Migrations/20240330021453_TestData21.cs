@@ -1,14 +1,29 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace MvcAplictionDAL.Data.Migrations
+namespace MvcAplictionDAL.Migrations
 {
-    public partial class EmployeeModule : Migration
+    public partial class TestData21 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Employees",
+                name: "Department",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "10, 10"),
+                    Code = table.Column<string>(type: "Varchar(50)", maxLength: 50, nullable: false),
+                    Name = table.Column<string>(type: "Varchar(50)", maxLength: 50, nullable: false),
+                    DateOfCreation = table.Column<DateTime>(type: "datetime2", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Department", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Employees", 
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -34,6 +49,9 @@ namespace MvcAplictionDAL.Data.Migrations
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "Department");
+
             migrationBuilder.DropTable(
                 name: "Employees");
         }
