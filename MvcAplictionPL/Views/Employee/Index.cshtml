@@ -44,20 +44,8 @@
                     <th>@employee.Gender</th>
                     <th>@employee.EmpType</th>
                     <th>@employee.Email</th>
-                    <td>
-                        <a asp-controller="Employee" asp-action="Details" asp-route-id="@employee.Id" class="btn btn-warning">
-                            <i class="fas fa-"></i>Details
-                        </a>
-                    </td>
-                    <td>
-                        <a asp-controller="Employee" asp-action="Edit" asp-route-id="@employee.Id" class="btn btn-success">
-                            <i class="fas fa-edit"></i>Update
-                        </a>
-                    </td>
-                    <td>
-                        <a asp-controller="Employee" asp-action="Delete" asp-route-id="@employee.Id" class="btn btn-danger">
-                            <i class="fas fa-trash"></i>Delete</a>
-                    </td>
+                    <partial name="_ButtonsPartials" model="@employee.Id" />
+
                 </tr>
             }
 
